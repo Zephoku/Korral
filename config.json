@@ -1,0 +1,6 @@
+{
+    "HOST"       : "https://korral.documents.azure.com:443/",
+    "AUTH_KEY"   : "+kNDbTv1fD97V7VGh84QY8Nzmj21RPjNOJL/a3fJ237KYzomvp9TpZEQST/DqpRGQendZXqO/Ir+ufAthd1m4Q==",
+    "DATABASE"   : "korral",
+    "COLLECTION" : "Categories"
+}

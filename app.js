@@ -1,44 +1,65 @@
-/**
- * Module dependencies.
- */
-
 var express = require('express');
-var routes = require('./routes');
-var http = require('http');
 var path = require('path');
-var sass = require('node-sass');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
+var api = require('./routes/api');
+
 var app = express();
 
-// all environments
-app.set('port', process.env.PORT || 3000);
+// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
-app.use(app.router);
 
-app.use(
-    sass.middleware({
-        src: __dirname + '/public', //where the sass files are
-        dest: __dirname + '/public', //where css should go
-        debug: true // obvious
-    })
-);
-
+// uncomment after placing your favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-// development only
-if ('development' === app.get('env')) {
-    app.use(express.errorHandler());
-    app.locals.pretty = true;
+
+app.use('/', routes);
+app.get('/:userId/categories', api.getCategories);
+app.post('/:userId/categories', api.postCategories);
+app.delete('/:userId/categories', api.deleteCategories);
+app.put('/:userId/categories', api.putCategories);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
 }
 
-app.get('/', routes.index);
-
-http.createServer(app).listen(app.get('port'), function(){
-    console.log('Express server listening on port ' + app.get('port'));
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
+
+
+module.exports = app;
