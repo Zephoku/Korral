@@ -17,7 +17,7 @@ exports.getCategories = function(req, res) {
   readOrCreateDatabase(function (database) {
     readOrCreateCollection(userId, database, function (collection) {
       listItems(userId, collection, function (items) {
-        console.log(items);
+        //console.log(items);
         res.json(items);
       });    
     });
@@ -161,7 +161,7 @@ var readOrCreateCollection = function (userId, database, callback) {
     client.queryCollections(database._self, 'SELECT * FROM ' + userId).toArray(function (err, results) {
         if (err) {
             // some error occured, rethrow up
-            throw (err);
+            console.log(err);
         }           
         if (!err && results.length === 0) {
             // no error occured, but there were no results returned 
@@ -171,7 +171,7 @@ var readOrCreateCollection = function (userId, database, callback) {
             });
         } else {
             // we found a collection
-            callback(results[0]);
+              callback(results[0]);
         }
     });
 };
@@ -181,7 +181,7 @@ var updateOrCreateCollection = function (userId, collectionId, database, callbac
         if (err) {
             // some error occured, rethrow up
             console.log(err);
-            throw (err);
+            //throw (err);
         }           
         if (!err && results.length === 0) {
             // no error occured, but there were no results returned 
