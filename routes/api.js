@@ -11,14 +11,51 @@ var collectionId = nconf.get("COLLECTION");
 
 var client = new DocumentDBClient(host, { masterKey: authKey });
 
+}
+
+
 exports.getCategories = function(req, res) {
   var userId = req.param("userId");
 
   readOrCreateDatabase(function (database) {
     readOrCreateCollection(userId, database, function (collection) {
-      listItems(collection, function (items) {
+      listItems(userId, collection, function (items) {
         console.log(items);
         res.json(items);
+      });    
+    });
+  });
+}
+
+exports.getCategory = function(req, res) { 
+  var userId = req.param("userId");
+  var categoryId = req.param("categoryId");
+
+  console.log(categoryId);
+  readOrCreateDatabase(function (database) {
+    readOrCreateCollection(userId, database, function (collection) {
+      readDocuments(userId, categoryId, collection, function(doc) {
+        if (doc == null) {
+          res.sendStatus(400);
+          return;
+        }
+        console.log(doc);
+        res.json(doc);
+      });    
+    });
+  });
+}
+
+exports.getLinks = function(req, res) {
+  var userId = req.param("userId");
+  var categoryId = req.param("categoryId");
+  console.log(categoryId);
+
+  readOrCreateDatabase(function (database) {
+    readOrCreateCollection(userId, database, function (collection) {
+      listLinks(userId, categoryId, collection, function (links) {
+        console.log(links);
+        res.json(links);
       });    
     });
   });
@@ -27,8 +64,7 @@ exports.getCategories = function(req, res) {
 exports.postCategories = function(req, res) {
   var userId = req.param("userId");
   var categories = req.body;
-  console.log(categories);
-  console.log(collectionId);
+  
   if (categories == null) {
     res.writeHead(401, {'Content-Type': 'text/json'});
   }
@@ -52,6 +88,21 @@ exports.deleteCategories = function(req, res) {
     readOrCreateCollection(userId, database, function (collection) {
       deleteCollection(collection, function() {
         res.sendStatus(200);
+      });
+    });
+  });
+}
+
+exports.deleteCategory = function(req, res) {
+  var userId = req.param("userId");
+  var categoryId = req.param("categoryId");
+
+  readOrCreateDatabase(function (database) {
+    readOrCreateCollection(userId, database, function (collection) {
+      readDocuments(userId, categoryId, collection, function(doc) {
+        deleteDocument(doc, function() {
+          res.sendStatus(200);
+        });
       });
     });
   });
@@ -159,8 +210,18 @@ var readDocuments = function (userId, collectionId, collection, callback) {
   });
 };
 
-var listItems = function (collection, callback) {
-    client.queryDocuments(collection._self, 'SELECT * FROM root r').toArray(function (err, docs) {
+var listItems = function (userId, collection, callback) {
+    client.queryDocuments(collection._self, 'SELECT r.id, r.icon, r.links FROM '+userId+ ' r').toArray(function (err, docs) {
+        if (err) {
+          console.log(err);
+        } else {
+          callback(docs);
+        }
+    });
+}
+
+var listLinks = function (userId, categoryId, collection, callback) {
+    client.queryDocuments(collection._self, 'SELECT r.links FROM '+userId+' r WHERE r.id="' + categoryId + '"').toArray(function (err, docs) {
         if (err) {
           console.log(err);
         } else {
@@ -178,6 +239,12 @@ var createItem = function (collection, documentDefinition, callback) {
 
 var deleteCollection = function (collection, callback) {
     client.deleteCollection(collection._self, [], function(err) {
+      callback(err);
+    });
+}
+
+var deleteDocument = function (doc, callback) {
+    client.deleteDocument(doc._self, [], function(err) {
       callback(err);
     });
 }

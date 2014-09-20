@@ -25,10 +25,15 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
 app.get('/:userId/categories', api.getCategories);
 app.post('/:userId/categories', api.postCategories);
 app.delete('/:userId/categories', api.deleteCategories);
 app.put('/:userId/categories', api.putCategories);
+
+app.get('/:userId/categories/:categoryId', api.getCategory);
+app.delete('/:userId/categories/:categoryId', api.deleteCategory);
+app.put('/:userId/categories/:categoryId', api.putCategories);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
