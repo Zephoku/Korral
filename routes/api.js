@@ -158,7 +158,7 @@ var readOrCreateDatabase = function (callback) {
 };
 
 var readOrCreateCollection = function (userId, database, callback) {
-    client.queryCollections(database._self, 'SELECT * FROM ' + userId).toArray(function (err, results) {
+    client.queryCollections(database._self, 'SELECT * FROM root' ).toArray(function (err, results) {
         if (err) {
             // some error occured, rethrow up
             console.log(err);
@@ -171,7 +171,6 @@ var readOrCreateCollection = function (userId, database, callback) {
             });
         } else {
             // we found a collection
-            console.log(results[0]);
             callback(results[0]);
         }
     });
