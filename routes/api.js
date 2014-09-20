@@ -11,9 +11,6 @@ var collectionId = nconf.get("COLLECTION");
 
 var client = new DocumentDBClient(host, { masterKey: authKey });
 
-}
-
-
 exports.getCategories = function(req, res) {
   var userId = req.param("userId");
 
