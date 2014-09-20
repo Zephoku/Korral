@@ -16,7 +16,6 @@
     "stylus": "0.42.3",
     "nconf": "*",
     "documentdb": "*",
-    "q": "*",
-    "jsonschema": "*"
+    "q": "*"
   }
 }

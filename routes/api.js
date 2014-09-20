@@ -171,7 +171,8 @@ var readOrCreateCollection = function (userId, database, callback) {
             });
         } else {
             // we found a collection
-              callback(results[0]);
+            console.log(results[0]);
+            callback(results[0]);
         }
     });
 };
