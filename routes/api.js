@@ -149,7 +149,8 @@ var updateOrCreateCollection = function (userId, collectionId, database, callbac
 };
 
 var readDocuments = function (userId, collectionId, collection, callback) {
-    client.queryDocuments(collection._self, 'SELECT * FROM root r WHERE r.completed=false').toArray(function (err, docs) {
+
+    client.queryDocuments(collection._self, 'SELECT * FROM '+userId+' r WHERE r.id="'+collectionId + '"').toArray(function (err, docs) {
     if (err) {
       console.log(err);
     } else {
