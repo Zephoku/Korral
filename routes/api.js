@@ -208,7 +208,7 @@ var readDocuments = function (userId, collectionId, collection, callback) {
 };
 
 var listItems = function (userId, collection, callback) {
-    client.queryDocuments(collection._self, 'SELECT r.id, r.icon, r.links FROM '+userId+ ' r').toArray(function (err, docs) {
+    client.queryDocuments(collection._self, 'SELECT r.id, r.name,r.icon,r.color, r.links FROM '+userId+ ' r').toArray(function (err, docs) {
         if (err) {
           console.log(err);
         } else {

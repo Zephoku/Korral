@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <title>Korral</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/full.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="brand">Korral</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><button style="margin-top:7px;"type="button" class="btn btn-default"><a style="
+    color: #777; text-align:center;" href="#" data-toggle="modal" data-target="#myModal">+ New Category</a></button></li>
+        </ul>
+
+        <div class="col-sm-3 col-md-3 pull-right">
+            <form class="navbar-form" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div> 
+
+        <ul class="nav navbar-nav" style="float:right;">
+
+            <li><a href="#">Log out</a></li>
+
+        </ul>
+
+    </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <br><br><br>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <br>
+      </div>
+      <div class="modal-body">
+        <label for="categories">Create category</label><br>
+        <input class="form-control" type="text" placeholder="Category" style="width:280px;"><a href="#">view more</a>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-default">Add</button>
+        </form>
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="square" style="background:#f49656;float:left;" ondrop="drop(event)" id="dropzone" ><img />
+
+        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">VIDEO</h1>
+        <center><img class="img-responsive" src="images/video.png" style="width:80px;height:auto;"></center>
+
+    </div>
+    <div class="square" style="background:#8dd3c7;float:right;" ondrop="drop(event)" id="dropzone" ><img />
+
+        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">TUTORIALS</h1>
+        <center><img class="img-responsive" src="images/tutorial.png" style="width:80px;height:auto;"></center>
+
+    </div>
+    <div class="square" style="background:#bebada;float:right;" ondrop="drop(event)" id="dropzone" ><img />
+
+        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">SCHOOL</h1>
+        <center><img class="img-responsive" src="images/school.png" style="width:80px;height:auto;"></center>
+        
+    </div>
+    <div class="square" style="background:#fb8072;float:right;" id="articles" ondrop="drop(event)" id="dropzone"><img/>
+
+        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">ARTICLES</h1>
+        <center><img class="img-responsive" src="images/articles.png" style="width:80px;height:auto;"></center>
+
+    </div>
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mapp.js"></script>
+
+</body>
+
+</html>

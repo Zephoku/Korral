@@ -1,0 +1,83 @@
+/*!
+ * Start Bootstrap - Full HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+
+.square{
+    width:50%;
+    height:400px; 
+}
+
+
+.square:hover{
+        background:#ffa500 !important;
+        opacity:0.7;
+        transition: .25s ease-in-out;
+
+}
+
+.navbar-nav {
+  color:#fff !important;
+}
+
+.addnew p {
+	color:#000;
+}
+
+.navbar-brand:hover{
+       content:none; /* Temp override for unused ::before/::after  */
+       color:#000 !important;
+       transition: .25s ease-in-out;
+}
+
+p {
+	font-family: 'Raleway', sans-serif; color:#000; font-weight:400;text-align:center;margin-top:15%;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#full-screen-background-image {
+  z-index: -999;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#wrapper {
+  position: relative;
+  width: 800px;
+  min-height: 400px;
+  margin: 100px auto;
+  color: #333;
+}
+
+
+
+.line-separator{
+
+height:1px;
+
+background:#717171;
+
+border-bottom:1px solid #c6c6c6;
+
+}
+
+
+
