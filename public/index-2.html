@@ -29,6 +29,7 @@
 
 </head>
 
+
 <body>
 
 
@@ -43,12 +44,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" id="brand">Korral</a>
+                <a style="margin-top:-5px;"class="navbar-brand" href="#"><img src="images/logo.png" style="width:30px;height:auto;">Korral</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><button style="margin-top:7px;"type="button" class="btn btn-default"><a style="
+
+            <li><button style="margin-top:7px;word-space:20px;"type="button" class="btn btn-default"><a style="
     color: #777; text-align:center;" href="#" data-toggle="modal" data-target="#myModal">+ New Category</a></button></li>
         </ul>
 
@@ -81,7 +83,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <br>
       </div>
       <div class="modal-body">
@@ -100,25 +102,25 @@
 
     <div class="square" style="background:#f49656;float:left;" ondrop="drop(event)" id="dropzone" ><img />
 
-        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">VIDEO</h1>
-        <center><img class="img-responsive" src="images/video.png" style="width:80px;height:auto;"></center>
+        <a style="text-decoration:none;" href="category.html"><button style="width:50px;height:50px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">VIDEO</h1>
+        <center><img class="img-responsive" src="images/video.png" style="width:80px;height:auto;"></center></a>
 
     </div>
     <div class="square" style="background:#8dd3c7;float:right;" ondrop="drop(event)" id="dropzone" ><img />
 
-        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">TUTORIALS</h1>
+        <button style="width:50px;height:50px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">TUTORIALS</h1>
         <center><img class="img-responsive" src="images/tutorial.png" style="width:80px;height:auto;"></center>
 
     </div>
     <div class="square" style="background:#bebada;float:right;" ondrop="drop(event)" id="dropzone" ><img />
 
-        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">SCHOOL</h1>
+        <button style="width:50px;height:50px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">SCHOOL</h1>
         <center><img class="img-responsive" src="images/school.png" style="width:80px;height:auto;"></center>
         
     </div>
     <div class="square" style="background:#fb8072;float:right;" id="articles" ondrop="drop(event)" id="dropzone"><img/>
 
-        <h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">ARTICLES</h1>
+        <button style="width:50px;height:50px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h1 class="category" style="font-family: 'Raleway', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">ARTICLES</h1>
         <center><img class="img-responsive" src="images/articles.png" style="width:80px;height:auto;"></center>
 
     </div>
@@ -128,7 +130,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/richdrop.js"></script>
+    <script src="js/mapp.js"></script>
 
 </body>
 
