@@ -56,9 +56,9 @@ function loadajax(){
 
 function buildSquare(color, name, icon) {
   return [
-    '<div class="square" style="background:'+color+';float:left;" ondrop="drop(event)" id="dropzone" ><img />',
+    '<a href="/category.html"><div class="square" style="background:'+color+';float:left;" ondrop="drop(event)" id="dropzone" ><img />',
        '<h1 class="category" style="font-family: \'Raleway\', sans-serif; color:#fff; font-weight:400;text-align:center;margin-top:15%;">'+name+'</h1>',
         '<center><img class="img-responsive" src="'+icon+'" style="width:80px;height:auto;"></center>',
-       '</div'
+       '</div></a>'
   ].join('\n');
 }
