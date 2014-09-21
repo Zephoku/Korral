@@ -7,7 +7,7 @@ $( document ).ready(function() {
   }).done( function(data) { 
     console.log(data); 
     for (var key in data) {
-      $('.squares').append(buildSquare(data[key].color, data[key].name, data[key].icon));
+      $('.squares').prepend(buildSquare(data[key].color, data[key].name, data[key].icon));
     }
   }).fail(function() { 
   }).always(function(data) { 
@@ -20,7 +20,7 @@ $( document ).ready(function() {
     $('#categoryName').val("");
     var color = pickAtRandom(colors);
     var image = pickAtRandom(images);
-    $('.squares').append(buildSquare(color, category, image));
+    $('.squares').prepend(buildSquare(color, category, image));
     console.log(category);
     var date = new Date();
 
